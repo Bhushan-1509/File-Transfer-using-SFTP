@@ -80,7 +80,8 @@ public class ButtonEvents {
             try{
                 Connection c = null;
                 Statement stmt = null;
-                c = DriverManager.getConnection("jdbc:sqlite:sessions.db");
+                String path = new File("sessions.db").getAbsolutePath();
+                c = DriverManager.getConnection("jdbc:sqlite:"+path);
                 String query = "SELECT sessionname from SAVEDSESSIONS";
                 stmt = c.createStatement();
                 ResultSet result = stmt.executeQuery(query);
@@ -384,7 +385,8 @@ public class ButtonEvents {
                         try{
                             Connection c = null;
                             Statement stmt = null;
-                            c = DriverManager.getConnection("jdbc:sqlite:sessions.db");
+                            String path = new File("sessions.db").getAbsolutePath();
+                            c = DriverManager.getConnection("jdbc:sqlite:"+path);
 //                            String query = "SELECT sessionname from SAVEDSESSIONS";
                             stmt = c.createStatement();
                             ResultSet result = stmt.executeQuery(sql);
@@ -426,7 +428,8 @@ public class ButtonEvents {
                 try{
                     Connection c = null;
                     Statement stmt = null;
-                    c = DriverManager.getConnection("jdbc:sqlite:sessions.db");
+                    String path = new File("sessions.db").getAbsolutePath();
+                    c = DriverManager.getConnection("jdbc:sqlite:" +path+";AutoCommit=false");
 
                     stmt = c.createStatement();
                     String sql = null;
